@@ -1,0 +1,24 @@
+{
+  "name": "inkvector",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "手绘扫描线稿矢量化工具：中轴 + 变粗细贝塞尔，拓扑保持，WebGL2 加速",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "bench": "vite-node bench/bench.ts",
+    "gen:fixtures": "vite-node scripts/gen-fixtures.ts",
+    "selftest": "vite-node scripts/selftest.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vite-node": "^2.1.8",
+    "vitest": "^2.1.8"
+  }
+}

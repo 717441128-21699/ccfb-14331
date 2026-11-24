@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InkVector · 手绘线稿矢量化工作台</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <h1>InkVector</h1>
+        <div class="topbar-actions">
+          <label class="btn">
+            导入扫描图
+            <input type="file" id="file-input" accept="image/*" multiple hidden />
+          </label>
+          <button class="btn" id="gen-synth">生成合成样例</button>
+          <select id="backend-select" title="计算后端">
+            <option value="cpu">CPU 参考</option>
+            <option value="webgl2">WebGL2 加速</option>
+          </select>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar">
+          <h2>镜头列表</h2>
+          <div id="shot-list" class="shot-list"></div>
+          <div class="progress" id="progress"></div>
+
+          <h2>参数</h2>
+          <div class="params">
+            <label>二值化阈值 <input type="number" id="p-threshold" min="1" max="254" value="128" /></label>
+            <label>拟合容差(px) <input type="number" id="p-tolerance" step="0.05" min="0.1" value="0.5" /></label>
+            <label>毛刺长度 <input type="number" id="p-spur" min="0" value="3" /></label>
+            <button class="btn primary" id="re-run">重新矢量化</button>
+          </div>
+
+          <h2>叠加显示</h2>
+          <div class="toggles">
+            <label><input type="checkbox" id="t-raster" checked /> 原图</label>
+            <label><input type="checkbox" id="t-vector" checked /> 矢量轮廓</label>
+            <label><input type="checkbox" id="t-controls" checked /> 控制点</label>
+            <label><input type="checkbox" id="t-junctions" checked /> 拓扑节点</label>
+            <label><input type="checkbox" id="t-heat" /> 偏差热区</label>
+          </div>
+
+          <h2>验收</h2>
+          <div id="metrics" class="metrics"></div>
+          <div class="accept-actions">
+            <button class="btn" id="btn-accept">标记验收通过</button>
+          </div>
+        </aside>
+
+        <main class="canvas-wrap">
+          <canvas id="canvas"></canvas>
+          <div class="hint" id="hint">导入扫描图或生成合成样例开始；滚轮缩放，拖拽平移，拖控制点修形。</div>
+        </main>
+      </div>
+    </div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

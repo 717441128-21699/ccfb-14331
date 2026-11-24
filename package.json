@@ -1,0 +1,19 @@
+{
+  "name": "line-vectorizer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "手绘动画线稿矢量化工具：距离场细化 + 拓扑保持的贝塞尔拟合",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8"
+  }
+}
